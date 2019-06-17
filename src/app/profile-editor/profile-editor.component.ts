@@ -47,8 +47,8 @@ export class ProfileEditorComponent implements OnInit {
 
   updateProfile() {
     this.profileForm.patchValue({
-      name: 'Pun Chibi',
-      email: 'chuvoidumboo@zing.vn',
+      name: 'King fisher',
+      email: 'mail@mail.com',
       password: '123456',
       address: {
         city: 'Hue'
