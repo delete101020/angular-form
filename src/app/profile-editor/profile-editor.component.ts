@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -13,7 +12,7 @@ import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 })
 export class ProfileEditorComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder) { }
 
   public Editor = ClassicEditor;
 
