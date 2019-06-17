@@ -16,6 +16,21 @@ export class ProfileEditorComponent implements OnInit {
 
   public Editor = ClassicEditor;
 
+  /* Where to put this code ?
+  ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ CKFinder, ... ],
+        toolbar: [ 'ckfinder', 'imageUpload' ... ], // Depending on your preference.
+        ckfinder: {
+          uploadUrl: 'https://example.com/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images&responseType=json',
+          options: {
+            resourceType: 'Images'
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+  */
+
   profileForm = this.fb.group({
     name: [''],
     email: ['', [Validators.required, Validators.email]],
