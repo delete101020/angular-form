@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { ChangeEvent } from '@ckeditor/ckeditor5-angular';
-import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+import { CkFinder } from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 
 @Component({
   selector: 'app-profile-editor',
@@ -15,21 +14,6 @@ export class ProfileEditorComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   public Editor = ClassicEditor;
-
-  /* Where to put this code ?
-  ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        plugins: [ CKFinder, ... ],
-        toolbar: [ 'ckfinder', 'imageUpload' ... ], // Depending on your preference.
-        ckfinder: {
-          uploadUrl: 'https://example.com/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images&responseType=json',
-          options: {
-            resourceType: 'Images'
-        }
-    } )
-    .then( ... )
-    .catch( ... );
-  */
 
   profileForm = this.fb.group({
     name: [''],
@@ -63,21 +47,16 @@ export class ProfileEditorComponent implements OnInit {
   updateProfile() {
     this.profileForm.patchValue({
       name: 'King fisher',
-      email: 'mail@mail.com',
-      password: '123456',
+      email: 'email@email.com',
+      password: '12345678',
       address: {
-        city: 'Hue'
+        city: 'Cần Thơ'
       }
     });
   }
 
   updateDesc(desc: string) {
     this.profileForm.get('desc').setValue(desc);
-  }
-
-  onChange( { editor }: ChangeEvent) {
-    const data = editor.getData();
-    this.updateDesc(data);
   }
 
   onSubmit() {

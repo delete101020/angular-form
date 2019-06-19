@@ -1,3 +1,16 @@
+<script src="/node_modules/@ckeditor/ckeditor5-ckfinder/src/ckfinder.js">
+  ClassicEditor
+	.create( document.querySelector( '#editor' ), {
+    plugins: [ CKFinder ],
+    toolbar: [ 'ckfinder', 'imageUpload' ],
+		ckfinder: {
+			uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+		}
+	} )
+	.catch( error => {
+		console.error( error );
+	} );
+</script>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <label>
     Name: <input type="text" formControlName="name">
@@ -38,7 +51,7 @@
   <label>
     Description:
   </label>
-  <ckeditor [editor]="Editor" data="" (change)="onChange($event)"></ckeditor>
+  <ckeditor #editor [editor]="Editor" data=""></ckeditor>
   <button type="button" (click)="updateProfile()">Update Profile</button>
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
